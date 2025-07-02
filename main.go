@@ -171,6 +171,9 @@ func startUDPServer() {
 		// 获取接收到的数据
 		data := string(buffer[:n])
 
+		// 搞一套验签 验证权限 todo 放在黑客恶意发包的验证 后续可以完善，如果不通过，则丢弃
+		
+
 		// 提交任务到工作池
 		if !workerPool.Submit(func() {
 			processData(data, remoteAddr)
